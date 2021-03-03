@@ -24,16 +24,19 @@ public class DvdControl {
 
     @GetMapping("/receiveDvdGenre/{genre}")
     public List<Object> searchGenre(@PathVariable Object object){
-        return crud.genreType(object);
+        return crud.search(object);
     }
-
+    @GetMapping("/receiveDvdStar/{star}")
+    public List<Object> searchStar(@PathVariable Object object){
+        return crud.search(object);
+    }
     @GetMapping("/receiveDvdDirector/{director}")
     public List<Object> searchDirector(@PathVariable Object object){
-        return crud.authorName(object);
+        return crud.search(object);
     }
 
     @PostMapping("/registerDvd")
-    public Dvd registerUserLogin(@RequestBody Dvd dvd){
+    public Dvd registerDvd(@RequestBody Dvd dvd){
         dvd.setId(0);
         crud.saveUpdate(dvd);
         return dvd;
@@ -41,12 +44,12 @@ public class DvdControl {
 
 
     @PutMapping("/updateDvd")
-    public Dvd updateUserLogin(@RequestBody Dvd dvd){
+    public Dvd updateDvd(@RequestBody Dvd dvd){
         crud.saveUpdate(dvd);
         return dvd;
     }
     @DeleteMapping("/deleteDvd/{id}")
-    public String deleteUserLogin(@PathVariable int id){
+    public String deleteDvd(@PathVariable int id){
 
         crud.deleteId(id);
         return "The user has bought dvd number "+ id +" from the database";

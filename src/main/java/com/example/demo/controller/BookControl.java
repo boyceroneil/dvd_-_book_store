@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 import com.example.demo.Impl.CRUD;
-import com.example.demo.entities.Dvd;
+import com.example.demo.entities.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,31 +23,34 @@ public class BookControl {
 
     @GetMapping("/receiveBookGenre/{genre}")
     public List<Object> searchGenre(@PathVariable Object object){
-        return crud.genreType(object);
+        return crud.search(object);
     }
 
     @GetMapping("/receiveAuthor/{author}")
     public List<Object> searchAuthor(@PathVariable Object object){
-        return crud.authorName(object);
+        return crud.search(object);
+    }
+    @GetMapping("/receivePublisher/{publisher}")
+    public List<Object> searchPublisher(@PathVariable Object object){
+        return crud.search(object);
+    }
+    @PostMapping("/registerBook")
+    public Book registerBook(@RequestBody Book book){
+        book.setId(0);
+        crud.saveUpdate(book);
+        return book;
     }
 
-    @PostMapping("/registerDvd")
-    public Dvd registerUserLogin(@RequestBody Dvd dvd){
-        dvd.setId(0);
-        crud.saveUpdate(dvd);
-        return dvd;
-    }
 
-
-    @PutMapping("/updateDvd")
-    public Dvd updateUserLogin(@RequestBody Dvd dvd){
-        crud.saveUpdate(dvd);
-        return dvd;
+    @PutMapping("/updateBook")
+    public Book updateBook(@RequestBody Book book){
+        crud.saveUpdate(book);
+        return book;
     }
-    @DeleteMapping("/deleteDvd/{id}")
-    public String deleteUserLogin(@PathVariable int id){
+    @DeleteMapping("/deleteBook/{id}")
+    public String deleteBook(@PathVariable int id){
 
         crud.deleteId(id);
-        return "The user has bought dvd number "+ id +" from the database";
+        return "The user has bought Book number "+ id +" from the database";
     }
 }

@@ -46,7 +46,7 @@ public class DvdIMPL implements CRUD {
 
     @Override
     @Transactional
-    public List<Object> authorName(Object object) {
+    public List<Object> search(Object object) {
         Session current= manager.unwrap(Session.class);
         Query<Object> query = current.createQuery("from Dvd");
         List list = query.list();
