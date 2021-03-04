@@ -52,7 +52,12 @@ class DvdCategorySearch extends component{
     render(){
         return(
             <div>
-                
+                <h1>Search for your interest</h1>
+                <li><Link className="nav-link" to="/Main">MainPage</Link></li>                    <li><Link className="nav-link" to="/DvdList">Dvd List</Link></li>
+                <li><Link className="nav-link" to="/DonateDvd">Donate Dvd</Link></li>
+                <li><Link className="nav-link" to="/ChangeDvdList">Change DvdList</Link></li>
+                <li><Link className="nav-link" to="/SearchDvd">Search Dvds</Link></li>
+                <li><Link className="nav-link" to="/Checkout">Checkout</Link></li>
                 <form>
             <input type="text" onChange={this.change}></input>
             <button onClick={this.clickDirector()}>filter Director</button>

@@ -23,6 +23,14 @@ class AllDvdComponent extends Component{
     }
     render(){
         return(
+            <div>
+            <h1>Dvd Collection</h1>
+            <li><Link className="nav-link" to="/Main">MainPage</Link></li>
+            <li><Link className="nav-link" to="/DvdList">Dvd List</Link></li>
+            <li><Link className="nav-link" to="/DonateDvd">Donate Dvd</Link></li>
+            <li><Link className="nav-link" to="/ChangeDvdList">Change DvdList</Link></li>
+            <li><Link className="nav-link" to="/SearchDvd">Search Dvds</Link></li>
+            <li><Link className="nav-link" to="/Checkout">Checkout</Link></li>
             <table>
                 <thead>
                     <tr>
@@ -57,6 +65,7 @@ class AllDvdComponent extends Component{
                     )}
                 </tbody>
             </table>
+            </div>
         )
     }
 }

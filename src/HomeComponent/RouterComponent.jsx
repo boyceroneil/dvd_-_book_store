@@ -6,9 +6,6 @@ import AllDvd from '../DvdComponents/AllDvdComponent'
 import AddDvd from '../DvdComponents/AddDvdComponent'
 import ChangeDvd from '../DvdComponents/ChangeDvdComponent'
 import RemoveDvd from '../DvdComponents/RemoveDvdComponent'
-import DvdDirector from '../DvdComponents/DvdDirectorComponent'
-import DvdGenre from '../DvdComponents/DvdGenreComponent'
-import DvdStar from '../DvdComponents/DvdStarComponent'
 import HeaderComponent from './HeaderComponent';
 
 class RouterComponent extends Component {
@@ -17,12 +14,14 @@ class RouterComponent extends Component {
             <Router>
                 <HeaderComponent />
                 <Switch>
-                    <Route exact path="/"><Welcome/></Route>
+                    <Route exact path="/Main"><Welcome/></Route>
                     <Route path="/DvdList" exact component = {AllDvd}></Route>
-                    <Route path="/"></Route>
+                    <Route path="/ChangeDvd"exact component ={ChangeDvd}></Route>
+                    <Route path="/AddDvd"exact component ={AddDvd}></Route>
                 </Switch>
                 
             </Router>
         )
     }
 }
+export default RouterComponent;

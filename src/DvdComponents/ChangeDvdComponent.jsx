@@ -17,18 +17,36 @@ class ChangeDvdComponent extends Component{
             Rprice: this.props.match.params.Rprice,
             Bprice: this.props.match.params.Bprice,
 
-            dvd:[],
-            dvdList:[]
+            dvd:[]
         }
+        this.change = this.change.bind(this)
+        this.deleteDvd = this.deleteDvd.bind(this)
+        this.updateDvd = this.updateDvd.bind(this)
+    }
+    componentDidMount(){
+        this.refreshListFlashcard();
+    }
+    change(event){
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
 deleteDvd(id){
     DvdDataService.deleteDvd(id)
     .then( response => {
-        this.setState({
-
+        this.setState({message: `Removing Dvd from list`})
+            this.refresh();
         })
-    })
+    
+}
+refresh(){
+    DvdDataService.retrieveAllDvd.then( response =>
+        {
+            this.setState({
+                dvd: response.data
+            })
+        })
 }
 updateDvd(){
     let dvd = {
@@ -50,8 +68,39 @@ updateDvd(){
 
     render(){
         return(
+            <div>
+                <h1>Delete or Change Dvd Status</h1>
+                <li><Link className="nav-link" to="/Main">MainPage</Link></li>
+                <li><Link className="nav-link" to="/DvdList">Dvd List</Link></li>
+                <li><Link className="nav-link" to="/DonateDvd">Donate Dvd</Link></li>
+                <li><Link className="nav-link" to="/ChangeDvdList">Change DvdList</Link></li>
+                <li><Link className="nav-link" to="/SearchDvd">Search Dvds</Link></li>
+                <li><Link className="nav-link" to="/Checkout">Checkout</Link></li>
+                        
+            <table>
+                <tr>
+                <td><textarea value={this.state.name} onChange={this.change}></textarea> </td>
+                <td><textarea value={this.state.genre} onChange={this.change}></textarea></td>
+                <td><textarea value={this.state.starring} onChange={this.change}></textarea></td>
+                <td><textarea value={this.state.director} onChange={this.change}></textarea></td>
+                <td><textarea value={this.state.format} onChange={this.change}></textarea></td>
+                <td><textarea value={this.state.rent} onChange={this.change}></textarea></td>
+                <td><textarea value={this.state.buy} onChange={this.change}></textarea></td>
+               <td><textarea value={this.state.Rprice} onChange={this.change}></textarea></td>
+               <td><textarea value={this.state.Bprice} onChange={this.change}></textarea></td>
+               <button className= "button3" onClick ={this.updateDvd} >Update</button>
+               <button className= "button3" onClick = {this.deleteDvd}>Erase </button> 
+             </tr>
+            </table>
 
+            <table>
+            <tr>
+            
+            </tr>
+            </table>
+            </div>
         )
     }
+
 }
 export default ChangeDvdComponent;

@@ -45,6 +45,15 @@ class AddDvdComponent extends Component{
     render(){
         return(
             <div>
+                        <h1>Donate Dvds</h1>
+                        <li><Link className="nav-link" to="/Main">MainPage</Link></li>
+                        <li><Link className="nav-link" to="/DvdList">Dvd List</Link></li>
+                        <li><Link className="nav-link" to="/DonateDvd">Donate Dvd</Link></li>
+                        <li><Link className="nav-link" to="/ChangeDvdList">Change DvdList</Link></li>
+                        <li><Link className="nav-link" to="/SearchDvd">Search Dvds</Link></li>
+                        <li><Link className="nav-link" to="/Checkout">Checkout</Link></li>
+                        
+
                 <form onSubmit ={this.addDvd}>
                <div>
                    <div>
@@ -106,3 +115,4 @@ class AddDvdComponent extends Component{
         )
     }
 }
+export default AddDvdComponent;

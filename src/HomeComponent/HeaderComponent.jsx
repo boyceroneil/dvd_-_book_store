@@ -7,7 +7,7 @@ class HeaderComponent extends Component {
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <ul className="navbar-nav">
-                        <li><Link className="nav-link" to="/">MainPage</Link></li>
+                        <li><Link className="nav-link" to="/Main">MainPage</Link></li>
                         <li><Link className="nav-link" to="/DvdList">Dvd List</Link></li>
                         <li><Link className="nav-link" to="/DonateDvd">Donate Dvd</Link></li>
                         <li><Link className="nav-link" to="/ChangeDvdList">Change DvdList</Link></li>
