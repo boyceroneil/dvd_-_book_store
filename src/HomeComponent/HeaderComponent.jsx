@@ -11,7 +11,7 @@ class HeaderComponent extends Component {
                         <li><Link className="nav-link" to="/DvdList">Dvd List</Link></li>
                         <li><Link className="nav-link" to="/DonateDvd">Donate Dvd</Link></li>
                         <li><Link className="nav-link" to="/ChangeDvdList">Change DvdList</Link></li>
-                        <li><Link className="nav-link" to="/SearchDvd">Search Dvds</Link></li>
+                        {/* <li><Link className="nav-link" to="/SearchDvd">Search Dvds</Link></li> */}
                         <li><Link className="nav-link" to="/Checkout">Checkout</Link></li>
                         
                     </ul>

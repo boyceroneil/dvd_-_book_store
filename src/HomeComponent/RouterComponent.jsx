@@ -15,9 +15,12 @@ class RouterComponent extends Component {
                 <HeaderComponent />
                 <Switch>
                     <Route exact path="/Main"><Welcome/></Route>
-                    <Route path="/DvdList" exact component = {AllDvd}></Route>
-                    <Route path="/ChangeDvd"exact component ={ChangeDvd}></Route>
-                    <Route path="/AddDvd"exact component ={AddDvd}></Route>
+                    <Route path="/DvdList"  component = {AllDvd}></Route>
+                    <Route path="/ChangeDvdList" component ={ChangeDvd}></Route>
+                    <Route path="/DonateDvd" component ={AddDvd}></Route>
+                    {/* <Route path="/SearchDvd" component ={SearchList}></Route> */}
+                    <Route path ="/Checkout" component = {Checkout}></Route>
+
                 </Switch>
                 
             </Router>

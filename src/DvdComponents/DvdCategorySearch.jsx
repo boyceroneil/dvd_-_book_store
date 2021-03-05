@@ -1,15 +1,20 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import DvdDataService from '../services/DvdDataService'
 import { SearchBar } from 'react-native-elements';
 
-class DvdCategorySearch extends component{
-    constructor(){
+class DvdCategorySearch extends Component{
+    constructor(props){
         super(props)
         this.state={
             search: '',
             dvd:[]
         }
+        this.change = this.change.bind(this)
+        this.refresh = this.refresh.bind(this)
+        this.clickDirector = this.clickDirector.bind(this)
+        this.clickGenre = this.clickGenre.bind(this)
+        this.clickStar = this.clickStar.bind(this)
     }
     change(event){
         this.setState({
@@ -53,7 +58,8 @@ class DvdCategorySearch extends component{
         return(
             <div>
                 <h1>Search for your interest</h1>
-                <li><Link className="nav-link" to="/Main">MainPage</Link></li>                    <li><Link className="nav-link" to="/DvdList">Dvd List</Link></li>
+                <li><Link className="nav-link" to="/Main">MainPage</Link></li>                    
+                <li><Link className="nav-link" to="/DvdList">Dvd List</Link></li>
                 <li><Link className="nav-link" to="/DonateDvd">Donate Dvd</Link></li>
                 <li><Link className="nav-link" to="/ChangeDvdList">Change DvdList</Link></li>
                 <li><Link className="nav-link" to="/SearchDvd">Search Dvds</Link></li>
