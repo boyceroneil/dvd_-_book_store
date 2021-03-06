@@ -95,8 +95,8 @@ decision(num){
                 <td onChange={this.change} contentEditable="true"><textarea value={dvd.buy} onChange={this.change}></textarea></td>
                <td onChange={this.change} contentEditable="true"><textarea value={dvd.rprice} onChange={this.change}></textarea></td>
                <td onChange={this.change} contentEditable="true"><textarea value={dvd.bprice} onChange={this.change}></textarea></td>
-               <button className= "button3" onClick ={this.updateDvd(dvd.id)} >Update</button>
-               <button className= "button3" onClick = {this.deleteDvd(dvd.id)}>Erase </button>    
+               <button onClick ={()=>this.updateDvd(dvd.id)} >Update</button>
+               <button className= "button3" onClick = {()=>this.deleteDvd(dvd.id)}>Erase </button>
                         </tr>
                     )}
                 
@@ -106,7 +106,7 @@ decision(num){
             </form>   
             <table>
             <tr>
-            
+               
             </tr>
             </table>
             </div>
