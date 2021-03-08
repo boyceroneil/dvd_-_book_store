@@ -49,8 +49,8 @@ class AllDvdComponent extends Component{
                             <td>{dvd.starring}</td>
                             <td>{dvd.director}</td>
                             <td>{dvd.format}</td>
-                            <td>{dvd.rent}</td>                
-                            <td>{dvd.buy}</td>
+                            <td ><input name="rent" type="text" value={dvd.rent} onChange={this.change} contentEditable="false"></input></td>
+                <td ><input name="buy"type="text" value={dvd.buy} onChange={this.change} contentEditable="false"></input></td>
                             <td>{dvd.rprice}</td>
                             <td>{dvd.bprice}</td>
                         </tr>
