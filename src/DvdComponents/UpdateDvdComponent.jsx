@@ -18,7 +18,6 @@ class UpdateDvdComponent extends Component{
             bprice: this.props.match.params.bprice,
             
         }
-        this.handleChange = this.handleChange.bind(this)
         this.update = this.update.bind(this)
     }
     handleChange(event){
@@ -26,18 +25,18 @@ class UpdateDvdComponent extends Component{
             [event.target.name]: event.target.value
         })
     }
-    update(value){
+    update(values){
         let dvd = {
-            id: this.state.id,
-            name: value.name,
-            genre: value.genre,
-            starring: value.starring,
-            director: value.director,
-            format: value.format,
-            rent: value.rent,
-            buy: value.buy,
-            rprice: value.rprice,
-            bprice: value.bprice
+            id: values.id,
+            name: values.name,
+            genre: values.genre,
+            starring: values.starring,
+            director: values.director,
+            format: values.format,
+            rent: values.rent,
+            buy: values.buy,
+            rprice: values.rprice,
+            bprice: values.bprice
     
         }
         DvdDataService.updateDvd(dvd).then(()=> this.props.history.push('/ChangeDvdList'))
@@ -45,13 +44,13 @@ class UpdateDvdComponent extends Component{
     render(){
         let {id, name, genre, starring, director, format, rent, buy, rprice, bprice}= this.state
         return(
-
+<div>
         <div>
             <div>
             <h2>Update values </h2>
             </div>
 <Formik
-initialValues={[id,name,genre,starring,director,format,rent,buy,rprice,bprice]}
+initialValues={{id, name, genre, starring, director, format, rent, buy, rprice, bprice}}
 onSubmit={this.update}
 enableReinitialize={true}
 >
@@ -79,6 +78,16 @@ enableReinitialize={true}
             </fieldset>
 
             <fieldset>
+                <label>director</label>
+                <Field type="text" name="director"  />
+            </fieldset>
+
+            <fieldset>
+                <label>format</label>
+                <Field type="text" name="format"  />
+            </fieldset>
+
+            <fieldset>
                 <label>rent</label>
                 <Field type="text" name="rent"  />
             </fieldset>
@@ -103,7 +112,18 @@ enableReinitialize={true}
 }
 </Formik>
 
-        {/* <form onSubmit={this.update}>
+       
+        </div>
+        </div>
+        )
+    }
+}
+export default UpdateDvdComponent;
+
+
+
+
+ {/* <form onSubmit={this.update}>
             <div>
                 <div>
                     <label>Id: </label>
@@ -146,8 +166,3 @@ enableReinitialize={true}
                 </div>
             </div>
         </form> */}
-        </div>
-        )
-    }
-}
-export default UpdateDvdComponent;

@@ -6,17 +6,17 @@ class ChangeDvdComponent extends Component{
     constructor(props){
         super(props)
         this.state= {
-            id: this.props.match.params.id,
-            name: this.props.match.params.name,
-            genre: this.props.match.params.genre,
-            starring: this.props.match.params.starring,
-            director: this.props.match.params.director,
-            format: this.props.match.params.format,
-            rent: this.props.match.params.rent,
-            buy: this.props.match.params.buy,
-            Rprice: this.props.match.params.Rprice,
-            Bprice: this.props.match.params.Bprice,
-            newDvd:[],
+            // id: this.props.match.params.id,
+            // name: this.props.match.params.name,
+            // genre: this.props.match.params.genre,
+            // starring: this.props.match.params.starring,
+            // director: this.props.match.params.director,
+            // format: this.props.match.params.format,
+            // rent: this.props.match.params.rent,
+            // buy: this.props.match.params.buy,
+            // Rprice: this.props.match.params.Rprice,
+            // Bprice: this.props.match.params.Bprice,
+            // newDvd:[],
             dvd:[]
         }
         this.refresh = this.refresh.bind(this)
@@ -34,7 +34,7 @@ class ChangeDvdComponent extends Component{
         })
     }
 
-deleteDvd(id, name, genre, starring, director, format, rent, buy, Rprice, Bprice){
+deleteDvd(id){
     DvdDataService.removeDvd(id)
     .then( response => {
         this.setState({message: `Removing Dvd from list`})
@@ -51,16 +51,16 @@ refresh(){
     .then(response => {
         this.setState({
             dvd: response.data,
-            id: response.data.id,
-            name: response.data.name,
-            genre: response.data.genre,
-            starring: response.data.starring,
-            director: response.data.director,
-            format: response.data.format,
-            rent: response.data.rent,
-            buy: response.data.buy,
-            Rprice: response.data.Rprice,
-            Bprice: response.data.Bprice,
+            // id: response.data.id,
+            // name: response.data.name,
+            // genre: response.data.genre,
+            // starring: response.data.starring,
+            // director: response.data.director,
+            // format: response.data.format,
+            // rent: response.data.rent,
+            // buy: response.data.buy,
+            // Rprice: response.data.Rprice,
+            // Bprice: response.data.Bprice,
         })
     })
 }
@@ -103,24 +103,29 @@ updateDvd(){
                         <th>Buy Price</th>
                     </tr>
                 </thead>
+                <tbody>
                     {this.state.dvd.map(
                         dvd=>
                         <tr key = {dvd.id}>
                 <td >{dvd.id} </td>
-                <td onChange={this.change} contentEditable="true"> {dvd.name}  </td>
-                <td onChange={this.change} contentEditable="true">{dvd.genre}</td>
-                <td onChange={this.change} contentEditable="true">{dvd.starring}</td>
-                <td onChange={this.change} contentEditable="true">{dvd.director}</td>
-                <td onChange={this.change} contentEditable="true">{dvd.format}</td>
-                <td ><input name="rent" type="text" value={dvd.rent} onChange={this.change} contentEditable="true"></input></td>
-                <td ><input name="buy"type="text" value={dvd.buy} onChange={this.change} contentEditable="true"></input></td>
-               <td ><input name="Rprice" type="text" value={dvd.rprice} onChange={this.change} contentEditable="true"></input></td>
-               <td ><input name="Bprice"type="text" value={dvd.bprice} onChange={this.change} ></input></td>
-               <button onClick ={()=> this.updateTo(dvd.id,dvd.name,dvd.genre,dvd.starring,dvd.director,dvd.format,dvd.rent,dvd.buy,dvd.rprice,dvd.bprice)} >Update</button>
+                {/* onChange={this.change} contentEditable="true" */}
+                <td > {dvd.name}  </td>
+                <td >{dvd.genre}</td>
+                <td >{dvd.starring}</td>
+                <td >{dvd.director}</td>
+                <td >{dvd.format}</td>
+                <td ><input name="rent" type="text" value={dvd.rent} ></input></td>
+                <td ><input name="buy"type="text" value={dvd.buy} ></input></td>
+               <td >{dvd.rprice}</td>
+               <td >{dvd.bprice}</td>
+               {/* <td ><input name="Rprice" type="text" value={dvd.rprice} ></input></td> */}
+               <button onClick ={()=> this.updateTo(dvd.id, dvd.name, dvd.genre, dvd.starring, dvd.director, dvd.format, dvd.rent, dvd.buy, dvd.rprice, dvd.bprice)} >Update</button>
                <button onClick = {()=> this.deleteDvd(dvd.id)}>Erase </button>
                
                         </tr>
-                    )}
+                    )
+                    }
+                    </tbody>
                 
             </table>
            
