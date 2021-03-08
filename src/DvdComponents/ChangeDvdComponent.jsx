@@ -23,6 +23,7 @@ class ChangeDvdComponent extends Component{
         this.change = this.change.bind(this)
         this.deleteDvd = this.deleteDvd.bind(this)
         this.updateDvd = this.updateDvd.bind(this)
+        this.updateTo = this.updateTo.bind(this)
     }
     componentDidMount(){
         this.refresh();
@@ -40,6 +41,11 @@ deleteDvd(id, name, genre, starring, director, format, rent, buy, Rprice, Bprice
         })
     
 }
+updateTo(id, name, genre, starring, director, format, rent, buy, rprice, bprice){
+this.props.history.push(`/UpdateDvd/${id}/${name}/${genre}/${starring}/${director}/${format}/${rent}/${buy}/${rprice}/${bprice}`)
+}
+
+
 refresh(){
     DvdDataService.retrieveAllDvd()
     .then(response => {
@@ -83,20 +89,34 @@ updateDvd(){
                 <h1>Delete or Change Dvd Status</h1>
                      <form>
             <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>name</th>
+                        <th>genre</th>
+                        <th>starring</th>
+                        <th>director</th>
+                        <th>format</th>
+                        <th>rent</th>
+                        <th>buy</th>
+                        <th>Rent Price</th>
+                        <th>Buy Price</th>
+                    </tr>
+                </thead>
                     {this.state.dvd.map(
                         dvd=>
                         <tr key = {dvd.id}>
                 <td >{dvd.id} </td>
                 <td onChange={this.change} contentEditable="true"> {dvd.name}  </td>
                 <td onChange={this.change} contentEditable="true">{dvd.genre}</td>
-                <td onChange={this.change} contentEditable="true">{this.state.starring}</td>
-                <td onChange={this.change} contentEditable="true">{this.state.director}</td>
+                <td onChange={this.change} contentEditable="true">{dvd.starring}</td>
+                <td onChange={this.change} contentEditable="true">{dvd.director}</td>
                 <td onChange={this.change} contentEditable="true">{dvd.format}</td>
                 <td ><input name="rent" type="text" value={dvd.rent} onChange={this.change} contentEditable="true"></input></td>
                 <td ><input name="buy"type="text" value={dvd.buy} onChange={this.change} contentEditable="true"></input></td>
                <td ><input name="Rprice" type="text" value={dvd.rprice} onChange={this.change} contentEditable="true"></input></td>
                <td ><input name="Bprice"type="text" value={dvd.bprice} onChange={this.change} ></input></td>
-               <button onClick ={()=>this.updateDvd} >Update</button>
+               <button onClick ={()=>this.updateTo(dvd.id,dvd.name,dvd.genre,dvd.starring,dvd.director,dvd.format,dvd.rent,dvd.buy,dvd.rprice,dvd.bprice)} >Update</button>
                <button onClick = {()=>this.deleteDvd(dvd.id)}>Erase </button>
                
                         </tr>

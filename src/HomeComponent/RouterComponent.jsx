@@ -5,7 +5,7 @@ import Welcome from './WelcomeComponent'
 import AllDvd from '../DvdComponents/AllDvdComponent'
 import AddDvd from '../DvdComponents/AddDvdComponent'
 import ChangeDvd from '../DvdComponents/ChangeDvdComponent'
-import RemoveDvd from '../DvdComponents/RemoveDvdComponent'
+import UpdateDvd from '../DvdComponents/UpdateDvdComponent'
 import HeaderComponent from './HeaderComponent';
 
 class RouterComponent extends Component {
@@ -18,6 +18,7 @@ class RouterComponent extends Component {
                     <Route path="/DvdList"  component = {AllDvd}></Route>
                     <Route path="/ChangeDvdList" component ={ChangeDvd}></Route>
                     <Route path="/DonateDvd" component ={AddDvd}></Route>
+                    <Route path="/UpdateDvd" component ={UpdateDvd}></Route>
                     {/* <Route path="/SearchDvd" component ={SearchList}></Route> */}
                     <Route path ="/Checkout" component = {Checkout}></Route>
 
