@@ -116,8 +116,8 @@ updateDvd(){
                 <td ><input name="buy"type="text" value={dvd.buy} onChange={this.change} contentEditable="true"></input></td>
                <td ><input name="Rprice" type="text" value={dvd.rprice} onChange={this.change} contentEditable="true"></input></td>
                <td ><input name="Bprice"type="text" value={dvd.bprice} onChange={this.change} ></input></td>
-               <button onClick ={()=>this.updateTo(dvd.id,dvd.name,dvd.genre,dvd.starring,dvd.director,dvd.format,dvd.rent,dvd.buy,dvd.rprice,dvd.bprice)} >Update</button>
-               <button onClick = {()=>this.deleteDvd(dvd.id)}>Erase </button>
+               <button onClick ={()=> this.updateTo(dvd.id,dvd.name,dvd.genre,dvd.starring,dvd.director,dvd.format,dvd.rent,dvd.buy,dvd.rprice,dvd.bprice)} >Update</button>
+               <button onClick = {()=> this.deleteDvd(dvd.id)}>Erase </button>
                
                         </tr>
                     )}

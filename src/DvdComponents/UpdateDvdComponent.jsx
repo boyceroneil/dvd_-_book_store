@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DvdDataService from '../services/DvdDataService'
+import { Formik, Form, Field } from 'formik'
 
 class UpdateDvdComponent extends Component{
     constructor(props){
@@ -13,10 +14,9 @@ class UpdateDvdComponent extends Component{
             format: this.props.match.params.format,
             rent: this.props.match.params.rent,
             buy: this.props.match.params.buy,
-            rprice: this.props.match.params.Rprice,
-            bprice: this.props.match.params.Bprice,
-            newDvd:[],
-            dvd:[]
+            rprice: this.props.match.params.rprice,
+            bprice: this.props.match.params.bprice,
+            
         }
         this.handleChange = this.handleChange.bind(this)
         this.update = this.update.bind(this)
@@ -26,27 +26,84 @@ class UpdateDvdComponent extends Component{
             [event.target.name]: event.target.value
         })
     }
-    update(){
+    update(value){
         let dvd = {
             id: this.state.id,
-            name: this.state.name,
-            genre: this.state.genre,
-            starring: this.state.starring,
-            director: this.state.director,
-            format: this.state.format,
-            rent: this.state.rent,
-            buy: this.state.buy,
-            rprice: this.state.Rprice,
-            bprice: this.state.Bprice
+            name: value.name,
+            genre: value.genre,
+            starring: value.starring,
+            director: value.director,
+            format: value.format,
+            rent: value.rent,
+            buy: value.buy,
+            rprice: value.rprice,
+            bprice: value.bprice
     
         }
         DvdDataService.updateDvd(dvd).then(()=> this.props.history.push('/ChangeDvdList'))
     }
     render(){
+        let {id, name, genre, starring, director, format, rent, buy, rprice, bprice}= this.state
         return(
 
-        
-        <form onSubmit={this.update}>
+        <div>
+            <div>
+            <h2>Update values </h2>
+            </div>
+<Formik
+initialValues={[id,name,genre,starring,director,format,rent,buy,rprice,bprice]}
+onSubmit={this.update}
+enableReinitialize={true}
+>
+{
+    (props) => (
+        <Form>
+            <fieldset>
+                <label>Id</label>
+                <Field type="text" name="id" disabled />
+            </fieldset>
+
+            <fieldset>
+                <label>name</label>
+                <Field type="text" name="name"  />
+            </fieldset>
+            
+            <fieldset>
+                <label>genre</label>
+                <Field type="text" name="genre" />
+            </fieldset>
+            
+            <fieldset>
+                <label>starring</label>
+                <Field type="text" name="starring"  />
+            </fieldset>
+
+            <fieldset>
+                <label>rent</label>
+                <Field type="text" name="rent"  />
+            </fieldset>
+
+            <fieldset>
+                <label>buy</label>
+                <Field type="text" name="buy"  />
+            </fieldset>
+
+            <fieldset>
+                <label>renting price</label>
+                <Field type="text" name="rprice" />
+            </fieldset>
+
+            <fieldset>
+                <label>buying price</label>
+                <Field type="text" name="bprice" />
+            </fieldset>
+            <button type="submit"> Update</button>
+        </Form>
+    )
+}
+</Formik>
+
+        {/* <form onSubmit={this.update}>
             <div>
                 <div>
                     <label>Id: </label>
@@ -88,7 +145,8 @@ class UpdateDvdComponent extends Component{
                     <button type="submit">Update</button>
                 </div>
             </div>
-        </form>
+        </form> */}
+        </div>
         )
     }
 }

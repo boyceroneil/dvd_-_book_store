@@ -23,7 +23,7 @@ class DvdDataServices{
     }
 
     updateDvd(dvd){
-        return axios.put(`http://localhost:8080/updateDvd/`,dvd)
+        return axios.put(`http://localhost:8080/updateDvd/`, dvd)
     }
 
     removeDvd(id){

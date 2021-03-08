@@ -18,7 +18,7 @@ class RouterComponent extends Component {
                     <Route path="/DvdList"  component = {AllDvd}></Route>
                     <Route path="/ChangeDvdList" component ={ChangeDvd}></Route>
                     <Route path="/DonateDvd" component ={AddDvd}></Route>
-                    <Route path="/UpdateDvd" component ={UpdateDvd}></Route>
+                    <Route path="/UpdateDvd/:id/:name/:genre/:starring/:director/:format/:rent/:buy/:rprice/:bprice" component ={UpdateDvd}></Route>
                     {/* <Route path="/SearchDvd" component ={SearchList}></Route> */}
                     <Route path ="/Checkout" component = {Checkout}></Route>
 
