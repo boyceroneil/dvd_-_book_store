@@ -88,7 +88,7 @@ updateDvd(){
             <div>
                 <h1>Delete or Change Dvd Status</h1>
                      <form>
-            <table>
+            <table id="dvd">
                 <thead>
                     <tr>
                         <th>Id</th>

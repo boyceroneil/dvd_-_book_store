@@ -25,7 +25,7 @@ class AllDvdComponent extends Component{
         return(
             <div>
             <h1>Dvd Collection</h1>
-            <table>
+            <table id="dvd">
                 <thead>
                     <tr>
                         {/* <th>Id</th> */}
