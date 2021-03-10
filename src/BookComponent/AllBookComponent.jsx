@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import BookDataService from '../services/BookDataService'
-import {Link} from 'react-router-dom';
 
 class AllBookComponent extends Component{
     constructor(props){
         super(props)
-        this.state ={
-            book: []
+        this.state = {
+            book:[]
         }
-        this.refreshList = this.refreshList.bind(this)
+        this.referesh = this.refresh.bind(this)
     }
     componentDidMount(){
-        this.refreshList()
+        this.refresh()
     }
-    refreshList(){
+    refresh(){
         BookDataService.retrieveAllBook()
         .then(response => {
             this.setState({

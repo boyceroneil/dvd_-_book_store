@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import DvdDataService from '../services/DvdDataService'
-import { SearchBar } from 'react-native-elements';
 
 class DvdCategorySearch extends Component{
     constructor(props){
         super(props)
         this.state={
             search: '',
-            dvd:[]
+            dvd:[],
+            newDvd: []
         }
         this.change = this.change.bind(this)
         this.refresh = this.refresh.bind(this)
@@ -22,35 +22,52 @@ class DvdCategorySearch extends Component{
         })
     }
     
-    componentDidMount(props){
-        this.refresh(0);
+    componentDidMount(){
+        this.refresh();
         
     }
-    refresh(props){
-        if(props ==1){
-            
-        }
+    refresh(){
+        DvdDataService.retrieveAllDvd()
+        .then(response => {
+            this.setState({
+                dvd: response.data,
+                // id: response.data.id,
+                // name: response.data.name,
+                // genre: response.data.genre,
+                // starring: response.data.starring,
+                // director: response.data.director,
+                // format: response.data.format,
+                // rent: response.data.rent,
+                // buy: response.data.buy,
+                // Rprice: response.data.Rprice,
+                // Bprice: response.data.Bprice,
+            })
+        })     
     }
 
     clickDirector(object){
         DvdDataService.retrieveSpecificDirector(object)
         .then(response => {
-            dvd: response.data,
-            this.refresh(1);
+            this.setState({
+                dvd: response.data
+            })
         })
+        
     }
     clickGenre(object){
         DvdDataService.retrieveSpecificGenre(object)
-        .then( response => {
-            dvd: response.data,
-            this.refresh(2);
+        .then(response => {
+            this.setState({
+                dvd: response.data
+            })
         })
     }
     clickStar(object){
         DvdDataService.retrieveSpecificStar(object)
-        .then( resposne => {
-            dvd: resposne.data,
-            this.refresh(3);
+        .then(response => {
+            this.setState({
+                dvd: response.data
+            })
         })
     }
 
@@ -58,17 +75,11 @@ class DvdCategorySearch extends Component{
         return(
             <div>
                 <h1>Search for your interest</h1>
-                <li><Link className="nav-link" to="/Main">MainPage</Link></li>                    
-                <li><Link className="nav-link" to="/DvdList">Dvd List</Link></li>
-                <li><Link className="nav-link" to="/DonateDvd">Donate Dvd</Link></li>
-                <li><Link className="nav-link" to="/ChangeDvdList">Change DvdList</Link></li>
-                <li><Link className="nav-link" to="/SearchDvd">Search Dvds</Link></li>
-                <li><Link className="nav-link" to="/Checkout">Checkout</Link></li>
                 <form>
-            <input type="text" onChange={this.change}></input>
-            <button onClick={this.clickDirector()}>filter Director</button>
-            <button onClick={this.clickGenre()}>filter Genre</button>
-            <button onClick={this.clickStar()}>filter Star</button>
+            <input type="text" onChange={this.change} name="search"></input>
+            <button type="submit" onClick={this.clickDirector}>filter Director</button>
+            <button type="submit" onClick={this.clickGenre}>filter Genre</button>
+            <button type="submit" onClick={this.clickStar}>filter Star</button>
             </form>
             <div>
             <table>

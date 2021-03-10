@@ -6,7 +6,7 @@ import AllDvd from '../DvdComponents/AllDvdComponent'
 import AddDvd from '../DvdComponents/AddDvdComponent'
 import ChangeDvd from '../DvdComponents/ChangeDvdComponent'
 import UpdateDvd from '../DvdComponents/UpdateDvdComponent'
-// import SearchDvd from '../DvdComponents/DvdCategorySearch'
+import SearchDvd from '../DvdComponents/DvdCategorySearch'
 import HeaderComponent from './HeaderComponent';
 import AllBook from '../BookComponent/AllBookComponent'
 import AddBook from '../BookComponent/AddBookComponent'
@@ -24,7 +24,7 @@ class RouterComponent extends Component {
                     <Route path="/ChangeDvdList" component ={ChangeDvd}></Route>
                     <Route path="/DonateDvd" component ={AddDvd}></Route>
                     <Route path="/UpdateDvd/:id/:name/:genre/:starring/:director/:format/:rent/:buy/:rprice/:bprice" component ={UpdateDvd}></Route>
-                    {/* <Route path="/SearchDvd" component ={SearchList}></Route> */}
+                    <Route path="/SearchDvd" component ={SearchDvd}></Route>
                     <Route exact path="/Main"><Welcome/></Route>
                     <Route path="/BookList"  component = {AllBook}></Route>
                     <Route path="/ChangeBookList" component ={ChangeBook}></Route>
