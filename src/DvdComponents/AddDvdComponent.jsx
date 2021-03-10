@@ -81,22 +81,22 @@ class AddDvdComponent extends Component{
                        
                        <div>
                        <label>rentable:</label>
-                       <input type ="text" name="rent"  onChange={this.change}></input>
+                       <input type ="text" name="rent"  onChange={this.change}placeholder="false"></input>
                        </div>
 
                        <div>
                        <label>buyable:</label>
-                       <input type ="text"name="buy" onChange={this.change}></input>
+                       <input type ="text"name="buy" onChange={this.change} placeholder="true"></input>
                        </div>
 
                        <div>
                        <label>renting price:</label>
-                       <input type ="text" name="rprice" onChange={this.change} placeholder="true"></input>
+                       <input type ="text" name="rprice" onChange={this.change}></input>
                        </div>
 
                        <div>
                        <label>buying price:</label>
-                       <input type ="text" name="bprice" onChange={this.change} placeholder="false"></input>
+                       <input type ="text" name="bprice" onChange={this.change} ></input>
                        </div>
 
                        </div> 
