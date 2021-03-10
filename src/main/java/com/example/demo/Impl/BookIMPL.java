@@ -5,12 +5,13 @@ import com.example.demo.entities.Dvd;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
-
+@Repository
 public class BookIMPL implements CRUD {
     private final EntityManager manager;
     @Autowired

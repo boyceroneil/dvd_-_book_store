@@ -2,6 +2,7 @@ package com.example.demo.controller;
 import com.example.demo.Impl.CRUD;
 import com.example.demo.entities.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public class BookControl {
     private final CRUD crud;
 
     @Autowired
-    public BookControl(CRUD crud) {
+    public BookControl(@Qualifier("bookIMPL") CRUD crud) {
         this.crud = crud;
     }
 
