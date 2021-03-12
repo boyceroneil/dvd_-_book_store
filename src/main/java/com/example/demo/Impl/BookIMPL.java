@@ -32,13 +32,13 @@ public class BookIMPL implements CRUD {
         return null;
     }
 
-    @Override
-    @Transactional
-    public List<Object> genreType(Object object) {
-        Session current= manager.unwrap(Session.class);
-        Query<Object> query = current.createQuery("from Book");
-        List list = query.list();
-        return Collections.singletonList(list.stream().filter(i -> i.toString().contains(object.toString())));    }
+//    @Override
+//    @Transactional
+//    public List<Object> genreType(Object object) {
+//        Session current= manager.unwrap(Session.class);
+//        Query<Object> query = current.createQuery("from Book");
+//        List list = query.list();
+//        return Collections.singletonList(list.stream().filter(i -> i.toString().contains(object.toString())));    }
 
     @Override
     @Transactional
@@ -47,6 +47,11 @@ public class BookIMPL implements CRUD {
         Query<Object> query = current.createQuery("from Book");
         List list = query.list();
         return Collections.singletonList(list.stream().filter(i -> i.toString().contains(object.toString())));
+    }
+
+    @Override
+    public boolean identify(Object name, Object password) {
+        return false;
     }
 
     @Override

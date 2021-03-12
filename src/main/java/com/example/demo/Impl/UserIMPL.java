@@ -1,6 +1,6 @@
 package com.example.demo.Impl;
-
-import com.example.demo.entities.Dvd;
+import com.example.demo.entities.Book;
+import com.example.demo.entities.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,21 +12,20 @@ import java.util.Collections;
 import java.util.List;
 
 @Repository
-public class DvdIMPL implements CRUD {
+public class UserIMPL implements CRUD{
     private final EntityManager manager;
 
     @Autowired
-    public DvdIMPL(EntityManager manager) {
+    public UserIMPL(EntityManager manager) {
         this.manager = manager;
     }
+
 
     @Override
     @Transactional
     public List<Object> searchAll() {
-        Session current = manager.unwrap(Session.class);
-        Query<Object> query = current.createQuery("from Dvd");
-        return query.getResultList();    }
-
+        return null;
+    }
 
     @Override
     @Transactional
@@ -35,27 +34,26 @@ public class DvdIMPL implements CRUD {
     }
 
 
-//    @Override
-//    @Transactional
-//    public List<Object> genreType(Object object) {
-//        Session current= manager.unwrap(Session.class);
-//        Query<Object> query = current.createQuery("from Dvd");
-//        List list = query.list();
-//        return Collections.singletonList(list.stream().filter(i -> i.toString().contains(object.toString())));
-//    }
 
     @Override
-    @Transactional
     public List<Object> search(Object object) {
-        Session current= manager.unwrap(Session.class);
-        Query<Object> query = current.createQuery("from Dvd");
-        List list = query.list();
-        return Collections.singletonList(list.stream().filter(i -> i.toString().contains(object.toString())));
+        return null;
     }
 
     @Override
+    @Transactional
     public boolean identify(Object name, Object password) {
-        return false;
+        boolean res= false;
+        Session current = manager.unwrap(Session.class);
+        Query<Object> query = current.createQuery("from Book");
+        List<Object> list = query.list();
+        for(int i =0; i <list.size(); i++){
+            if(list.get(i).toString().contains(name.toString()) & list.get(i).toString().contains(password.toString())){
+                res= true;
+            }
+
+        }
+        return res;
     }
 
     @Override
@@ -69,7 +67,7 @@ public class DvdIMPL implements CRUD {
     @Transactional
     public void deleteId(int theId) {
         Session current = manager.unwrap(Session.class);
-        Dvd dvd = current.get(Dvd.class, theId);
-        current.delete(dvd);
+        User user = current.get(User.class, theId);
+        current.delete(user);
     }
 }
