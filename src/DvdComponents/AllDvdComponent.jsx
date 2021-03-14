@@ -97,6 +97,7 @@ componentWillMount(){
                 {this.state.filterData.map(
                     i=> 
                     <tr key={i.id}>
+                <td><picture><source media="()" srcset={i.url}></source></picture></td>
                 <td>{i.name}</td>        
                 <td>{i.genre}</td>
                 <td>{i.starring}</td>
@@ -118,6 +119,7 @@ componentWillMount(){
                 <thead>
                     <tr>
                         {/* <th>Id</th> */}
+                        <th>picture</th>
                         <th>name</th>
                         <th>genre</th>
                         <th>starring</th>
@@ -133,6 +135,7 @@ componentWillMount(){
                     {this.state.dvd.map(
                         dvd =>
                         <tr key ={dvd.id}>
+                            <td><img src={dvd.url} width="200" height="200"/> </td>
                             <td>{dvd.name}</td>
                             <td>{dvd.genre}</td>
                             <td>{dvd.starring}</td>

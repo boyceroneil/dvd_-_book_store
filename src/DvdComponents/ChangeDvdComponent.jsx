@@ -67,6 +67,7 @@ refresh(){
 updateDvd(){
     let dvd = {
         id: this.state.id,
+        url: this.state.url,
         name: this.state.name,
         genre: this.state.genre,
         starring: this.state.starring,
@@ -92,6 +93,7 @@ updateDvd(){
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>picture</th>
                         <th>name</th>
                         <th>genre</th>
                         <th>starring</th>
@@ -109,6 +111,7 @@ updateDvd(){
                         <tr key = {dvd.id}>
                 <td >{dvd.id} </td>
                 {/* onChange={this.change} contentEditable="true" */}
+                <td>{dvd.url}</td>
                 <td > {dvd.name}  </td>
                 <td >{dvd.genre}</td>
                 <td >{dvd.starring}</td>
@@ -119,7 +122,7 @@ updateDvd(){
                <td >{dvd.rprice}</td>
                <td >{dvd.bprice}</td>
                {/* <td ><input name="Rprice" type="text" value={dvd.rprice} ></input></td> */}
-               <button onClick ={()=> this.updateTo(dvd.id, dvd.name, dvd.genre, dvd.starring, dvd.director, dvd.format, dvd.rent, dvd.buy, dvd.rprice, dvd.bprice)} >Update</button>
+               <button onClick ={()=> this.updateTo(dvd.id,dvd.name, dvd.genre, dvd.starring, dvd.director, dvd.format, dvd.rent, dvd.buy, dvd.rprice, dvd.bprice)} >Update</button>
                <button onClick = {()=> this.deleteDvd(dvd.id)}>Erase </button>
                
                         </tr>

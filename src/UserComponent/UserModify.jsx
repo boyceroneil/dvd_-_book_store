@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {Link, Redirect} from 'react-router-dom'
-import UserDataServices from '../service/UserDataServices'
+import UserDataServices from '../services/UserDataServices'
 
 class UserModify extends Component{
     constructor(props){

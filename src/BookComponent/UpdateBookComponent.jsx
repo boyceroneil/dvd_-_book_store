@@ -7,6 +7,7 @@ class UpdateBookComponent extends Component{
         super(props)
         this.state ={
             id: this.props.match.params.id,
+            url:'',
             name: this.props.match.params.name,
             genre: this.props.match.params.genre,
             author: this.props.match.params.author,
@@ -27,6 +28,7 @@ class UpdateBookComponent extends Component{
     update(values){
         let book = {
             id: values.id,
+            url: values.url,
             name: values.name,
             genre: values.genre,
             author: values.author,
@@ -40,7 +42,7 @@ class UpdateBookComponent extends Component{
         BookDataService.updateBook(book).then(()=> this.props.history.push('/ChangeBookList'))
     }
     render(){
-        let {id, name, genre, author, publisher, rent, buy, rprice, bprice}= this.state
+        let {id, url, name, genre, author, publisher, rent, buy, rprice, bprice}= this.state
         return(
 <div>
         <div>
@@ -48,7 +50,7 @@ class UpdateBookComponent extends Component{
             <h2>Update values </h2>
             </div>
 <Formik
-initialValues={{id, name, genre, author, publisher, rent, buy, rprice, bprice}}
+initialValues={{id, url, name, genre, author, publisher, rent, buy, rprice, bprice}}
 onSubmit={this.update}
 enableReinitialize={true}
 >
@@ -58,6 +60,11 @@ enableReinitialize={true}
             <fieldset>
                 <label>Id</label>
                 <Field type="text" name="id" disabled />
+            </fieldset>
+
+            <fieldset>
+                <label>picture link</label>
+                <Field type="text" name="url"  />
             </fieldset>
 
             <fieldset>

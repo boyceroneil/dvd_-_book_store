@@ -1,7 +1,7 @@
 import { Alert } from 'bootstrap'
 import React, {Component} from 'react'
 import {Link, Redirect} from 'react-router-dom'
-import UserDataServices from '../service/UserDataServices'
+import UserDataServices from '../services/UserDataServices'
 
 class UserAccount extends Component{
     constructor(props){
@@ -50,8 +50,8 @@ class UserAccount extends Component{
                         <td><input type = "password" name = "password" placeholder = "password" onChange={this.change}/></td>
                     </tr>
                     <tr>
-                        <td><button button className= "button3" onClick ={this.submit}>submit</button></td>
-                        <td><button className= "button4" onClick ={this.create}>Create Account</button></td>
+                        <td><button button className= "button3" onClick ={this.submit}>Sign in</button></td>
+                        <td><button className= "button4" onClick ={this.create}>Subscribe</button></td>
                     </tr>
                 </table>
             </div>

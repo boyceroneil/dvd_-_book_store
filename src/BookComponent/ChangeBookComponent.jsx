@@ -56,6 +56,7 @@ refresh(){
 updateBook(){
     let book = {
         id: this.state.id,
+        url: this.state.url,
         name: this.state.name,
         genre: this.state.genre,
         author: this.state.author,
@@ -97,6 +98,7 @@ updateBook(){
                         <tr key = {book.id}>
                 <td >{book.id} </td>
                 {/* onChange={this.change} contentEditable="true" */}
+                <td>{book.url}</td>
                 <td > {book.name}  </td>
                 <td >{book.genre}</td>
                 <td >{book.author}</td>

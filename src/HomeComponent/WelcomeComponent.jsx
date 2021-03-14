@@ -11,7 +11,10 @@ class WelcomeComponent extends Component {
            <div>
                <h1>Welcome to the Book and DVD store! Browse by genre, and by name</h1>
             <div>
-               <h2>If you want to donate or buy books and or Dvds then you can too </h2>
+               <h2>If you want to donate, browse or buy books and or Dvds then you can too </h2>
+
+               <h3> Sign into your account <Link to= "/Signin">here</Link></h3>
+               <h3> Create an account <Link to= "/Signin">here</Link></h3>
             </div>
            </div> 
         )

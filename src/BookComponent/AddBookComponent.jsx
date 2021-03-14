@@ -7,6 +7,7 @@ class AddBookComponent extends Component{
         super(props)
         this.state= {
             id: this.props.match.params.id,
+            url: '',
             name: '',
             genre: '',
             starring: '',
@@ -28,6 +29,7 @@ class AddBookComponent extends Component{
     addBook(){
         let book = {
             id: this.state.id,
+            url: this.state.url,
             name: this.state.name,
             genre: this.state.genre,
             author: this.state.author,
@@ -53,6 +55,11 @@ class AddBookComponent extends Component{
                        <input type ="text" value={this.state.id} disabled></input>
                        </div>
 
+                       <div>
+                       <label>picture:</label>
+                       <input type ="text" name="url" onChange={this.change}></input>
+                       </div>
+                       
                        <div>
                        <label>name:</label>
                        <input type ="text" name="name" onChange={this.change}></input>

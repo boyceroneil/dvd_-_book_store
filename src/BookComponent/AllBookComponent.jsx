@@ -111,6 +111,7 @@ this.getData();
                 <thead>
                     <tr>
                         {/* <th>Id</th> */}
+                        <th>picture</th>
                         <th>name</th>
                         <th>genre</th>
                         <th>author</th>
@@ -125,6 +126,7 @@ this.getData();
                     {this.state.book.map(
                         book =>
                         <tr key ={book.id}>
+                            <td><img src={book.url} width="200" height="200"/> </td>
                             <td>{book.name}</td>
                             <td>{book.genre}</td>
                             <td>{book.author}</td>
