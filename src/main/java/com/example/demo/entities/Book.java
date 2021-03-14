@@ -10,6 +10,9 @@ public class Book {
     @Column(name ="id")
     private int id;
 
+    @Column(name="url")
+    private String url;
+
     @Column(name="name")
     private String name;
 
@@ -35,6 +38,30 @@ public class Book {
     private String Bprice;
 
     public Book() {
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", url='" + url + '\'' +
+                ", name='" + name + '\'' +
+                ", genre='" + genre + '\'' +
+                ", author='" + author + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", rent=" + rent +
+                ", buy=" + buy +
+                ", Rprice='" + Rprice + '\'' +
+                ", Bprice='" + Bprice + '\'' +
+                '}';
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public int getId() {
@@ -109,18 +136,4 @@ public class Book {
         Bprice = bprice;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", genre='" + genre + '\'' +
-                ", author='" + author + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", rent=" + rent +
-                ", buy=" + buy +
-                ", Rprice='" + Rprice + '\'' +
-                ", Bprice='" + Bprice + '\'' +
-                '}';
-    }
 }

@@ -9,6 +9,9 @@ public class Dvd {
     @Column(name ="id")
     private int id;
 
+    @Column(name="url")
+    private String url;
+
     @Column(name="name")
     private String name;
 
@@ -37,6 +40,14 @@ public class Dvd {
     private String Bprice;
 
     public Dvd() {
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public int getId() {
@@ -123,6 +134,7 @@ public class Dvd {
     public String toString() {
         return "Dvd{" +
                 "id=" + id +
+                ", url='" + url + '\'' +
                 ", name='" + name + '\'' +
                 ", genre='" + genre + '\'' +
                 ", starring='" + starring + '\'' +

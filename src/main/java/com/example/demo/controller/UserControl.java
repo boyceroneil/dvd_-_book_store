@@ -16,7 +16,7 @@ public class UserControl {
     }
 
     @GetMapping("/retrieveAccount/{name}/{password}")
-    public boolean retrieveAccount(@PathVariable Object name, @PathVariable Object password){
+    public boolean retrieveAccount(@PathVariable String name, @PathVariable String password){
         return crud.identify(name,password);
     }
 
