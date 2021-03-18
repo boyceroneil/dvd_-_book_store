@@ -2,6 +2,12 @@ package com.example.demo.entities;
 import javax.persistence.*;
 
 @Entity
+//@NamedNativeQueries({
+//        @NamedNativeQuery(name = "User.identify",
+//                query = "SELECT * FROM User u WHERE u.name = :name",
+//                resultClass = User.class)
+//})
+
 @Table(name="user")
 public class User {
     @Id
@@ -9,6 +15,20 @@ public class User {
     @Column(name ="id")
     private int id;
 
+    public User(int id, String name, String password) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+    }
+
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
 
     @Column(name="name")
     private String name;

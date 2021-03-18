@@ -54,7 +54,7 @@ public class DvdIMPL implements CRUD {
     }
 
     @Override
-    public boolean identify(Object name, Object password) {
+    public Object identify(Object name, Object password) {
         return false;
     }
 

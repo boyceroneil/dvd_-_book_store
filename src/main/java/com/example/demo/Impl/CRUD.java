@@ -7,7 +7,7 @@ public interface CRUD {
     Object searchId(int theId);
 //    List<Object> genreType(Object object);
     List<Object> search(Object object);
-    boolean identify(Object name, Object password);
+    Object identify(Object name, Object password);
     void saveUpdate(Object object);//rent the book
     void deleteId(int theId);//bought the book
 }
