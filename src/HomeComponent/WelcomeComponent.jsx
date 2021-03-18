@@ -13,7 +13,7 @@ class WelcomeComponent extends Component {
             <div>
                <h2>If you want to donate, browse or buy books and or Dvds then you can too </h2>
 
-               <h3> Sign into your account <Link to= "/Signin">here</Link></h3>
+               <h3><a href="http://localhost/login1.php">Sign in Here</a></h3>
                <h3> Create an account <Link to= "/Signin">here</Link></h3>
             </div>
            </div> 

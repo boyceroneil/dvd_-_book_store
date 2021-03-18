@@ -9,9 +9,12 @@
     "bootstrap": "^4.0.0",
     "formic": "^0.0.10",
     "formik": "^2.2.6",
+    "jquery": "^3.6.0",
+    "mobx": "^6.1.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
+    "redux": "^4.0.5",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

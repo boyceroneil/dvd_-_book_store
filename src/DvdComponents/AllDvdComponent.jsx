@@ -8,7 +8,8 @@ class AllDvdComponent extends Component{
         this.state ={
             dvd: [],
             search:'',
-            filterData: []
+            filterData: [],
+            amount: 1
             
         }
         this.refreshList = this.refreshList.bind(this)
@@ -66,9 +67,27 @@ componentWillMount(){
             })
         })
     }
+    toRCart(name, rprice){
+
+    }
+    toBCart(name, bprice){
+        
+    }
+    toCart(){
+        let cart = localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): {};
+        let id = this.props.dvd.id.toString();
+        cart[id]= (cart[id] ? cart[id]: 0);
+        // let amount = cart[id] + parseInt(this.state.amount);
+        // if(this.props.dvd.availability < amount){
+        //     cart[id] = this.props.dvd.availability;
+        // } else{
+        //     cart[id] = amount
+        // }
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
 
     render(){
-        return(
+               return(
             <div>
             <h1>Dvd Collection</h1>
             
@@ -145,6 +164,9 @@ componentWillMount(){
                 <td ><input name="buy"type="text" value={dvd.buy} onChange={this.change} contentEditable="false"></input></td>
                             <td>{dvd.rprice}</td>
                             <td>{dvd.bprice}</td>
+                            <button onClick = {()=> this.toBCart(dvd.name, dvd.bprice)}>Buying cart </button>
+                            <button onClick = {()=> this.toRCart(dvd.name, dvd.rprice)}>Renting cart </button>
+
                         </tr>
                     )}
                 </tbody>
